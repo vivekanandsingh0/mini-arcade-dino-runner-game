@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Arcade Game - Dino Runner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Title Banner -->
+        <div class="title-banner">
+            <h1>🦖 DINO RUNNER</h1>
+            <p class="subtitle">Mini Arcade Game – HTML + JS</p>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="screen-content">
+                <h2>Welcome to Dino Runner!</h2>
+                <div class="instructions">
+                    <p>🎮 <strong>How to Play:</strong></p>
+                    <ul>
+                        <li>Press <kbd>SPACE</kbd> or <kbd>TAP</kbd> to jump</li>
+                        <li>Avoid the cacti obstacles</li>
+                        <li>Score increases with distance</li>
+                        <li>Speed increases over time</li>
+                    </ul>
+                </div>
+                <button id="startBtn" class="game-btn">START GAME</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="score-display">
+                <div class="score-item">
+                    <span class="label">Score:</span>
+                    <span id="currentScore" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">High Score:</span>
+                    <span id="highScore" class="value">0</span>
+                </div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+            <div class="mobile-controls">
+                <button id="jumpBtn" class="jump-btn">JUMP</button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="screen">
+            <div class="screen-content">
+                <h2 class="game-over-title">GAME OVER!</h2>
+                <div class="final-scores">
+                    <p>Your Score: <span id="finalScore" class="highlight">0</span></p>
+                    <p>High Score: <span id="finalHighScore" class="highlight">0</span></p>
+                </div>
+                <button id="restartBtn" class="game-btn">PLAY AGAIN</button>
+                <button id="menuBtn" class="game-btn secondary">MAIN MENU</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Made with HTML, CSS & JS</p>
+        </div>
+    </div>
+
+    <!-- Sound Effects -->
+    <audio id="jumpSound" preload="auto">
+        <source src="sounds/jump.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hitSound" preload="auto">
+        <source src="sounds/hit.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="scoreSound" preload="auto">
+        <source src="sounds/score.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

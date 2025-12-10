@@ -1,0 +1,389 @@
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* ========================================
+   GAME CONTAINER
+   ======================================== */
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(102, 126, 234, 0.5);
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   TITLE BANNER
+   ======================================== */
+.title-banner {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+.title-banner h1 {
+    font-size: 3em;
+    color: #667eea;
+    text-shadow: 3px 3px 0 #764ba2,
+                 6px 6px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* ========================================
+   SCREENS
+   ======================================== */
+.screen {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.screen-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.screen-content h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   INSTRUCTIONS
+   ======================================== */
+.instructions {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instructions p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.instructions ul {
+    list-style: none;
+    text-align: left;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.instructions li {
+    font-size: 1.1em;
+    color: #555;
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.instructions li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+kbd {
+    background: #667eea;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.game-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.game-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.game-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+}
+
+.game-btn.secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+.game-btn.secondary:hover {
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+}
+
+/* ========================================
+   SCORE DISPLAY
+   ======================================== */
+.score-display {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-item .label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.score-item .value {
+    display: block;
+    font-size: 2em;
+    color: #667eea;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   CANVAS
+   ======================================== */
+#gameCanvas {
+    display: block;
+    width: 100%;
+    max-width: 740px;
+    height: 400px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+    border-radius: 15px;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* ========================================
+   MOBILE CONTROLS
+   ======================================== */
+.mobile-controls {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.jump-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 20px 60px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.jump-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+}
+
+/* ========================================
+   GAME OVER SCREEN
+   ======================================== */
+.game-over-title {
+    color: #f5576c;
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.final-scores {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.final-scores p {
+    font-size: 1.5em;
+    color: #333;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #667eea;
+    font-size: 1.3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.footer p {
+    color: #999;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .title-banner h1 {
+        font-size: 2em;
+    }
+
+    .screen-content h2 {
+        font-size: 1.8em;
+    }
+
+    .game-btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+
+    #gameCanvas {
+        height: 300px;
+    }
+
+    .mobile-controls {
+        display: block;
+    }
+
+    .score-item .value {
+        font-size: 1.5em;
+    }
+
+    .game-over-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    .title-banner h1 {
+        font-size: 1.5em;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    .instructions {
+        padding: 15px;
+    }
+
+    .instructions li {
+        font-size: 0.95em;
+    }
+
+    #gameCanvas {
+        height: 250px;
+    }
+}
